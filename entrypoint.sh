@@ -29,6 +29,8 @@ RESULT=$(aws \
 
 RESULT_CODE=$?
 
-echo "::set-output name=result::${RESULT}"
+echo "results<<EOT" >> ${GITHUB_OUTPUT}
+echo ${RESULT}
+echo "EOT"
 
 exit ${RESULT_CODE}
